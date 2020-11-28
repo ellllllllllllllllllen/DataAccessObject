@@ -6,14 +6,14 @@ import java.util.Set;
 public class Book {
     private long bookId;
     private String title;
-    private Set author;
+    private Author author;
     private PublishingHouse publishingHouse;
     private int year;
     private int numberOfPages;
     private BigDecimal price;
     private BindingType bindingtype;
 
-    public Book(long bookId, String title, Set author, PublishingHouse publishingHouse, int year, int numberOfPages, BigDecimal price, BindingType bindingtype) {
+    public Book(long bookId, String title, Author author, PublishingHouse publishingHouse, int year, int numberOfPages, BigDecimal price, BindingType bindingtype) {
         this.bookId = bookId;
         this.title = title;
         this.author = author;
@@ -22,6 +22,10 @@ public class Book {
         this.numberOfPages = numberOfPages;
         this.price = price;
         this.bindingtype = bindingtype;
+    }
+
+    public Book() {
+
     }
 
     public long getBookId() {
@@ -40,11 +44,11 @@ public class Book {
         this.title = title;
     }
 
-    public Set getAuthor() {
+    public Author getAuthor() {
         return author;
     }
 
-    public void setAuthor(Set author) {
+    public void setAuthor(Author author) {
         this.author = author;
     }
 
@@ -121,15 +125,15 @@ public class Book {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Book{");
-        sb.append("bookId=").append(bookId);
-        sb.append(", title='").append(title).append('\'');
-        sb.append(", author=").append(author);
-        sb.append(", publishingHouse=").append(publishingHouse);
-        sb.append(", year=").append(year);
-        sb.append(", numberOfPages=").append(numberOfPages);
-        sb.append(", price=").append(price);
-        sb.append(", bindingtype=").append(bindingtype);
+        final StringBuilder sb = new StringBuilder("Book {");
+        sb.append("book id = ").append(bookId);
+        sb.append(", title = '").append(title).append('\'');
+        sb.append(", author = ").append(author);
+        sb.append(", publishing house = ").append(publishingHouse);
+        sb.append(", year = ").append(year);
+        sb.append(", number of pages = ").append(numberOfPages);
+        sb.append(", price = ").append(price);
+        sb.append(", binding type = ").append(bindingtype);
         sb.append('}');
         return sb.toString();
     }
