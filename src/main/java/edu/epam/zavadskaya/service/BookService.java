@@ -10,6 +10,9 @@ import java.util.List;
 
 public class BookService{
 
+
+
+
 //    public BookService(List<Book> books) {
 //        super(books);
 //    }
@@ -38,15 +41,15 @@ public class BookService{
     //изменить книгу по заданным полям/полю; (dao)
 
     //найти книгу по заданному/ым критерию; (dao)
-    public List<Book> search(Shop books, Book book){
-        List<Book> searchedBooks = new ArrayList<>();
-        for (int i = 0; i < books.size(); i++) {
-            if (book.equals(books.getBook(i).getBookId())) {
-                searchedBooks.add(books.getBook(i));
-            }
-        }
-        return searchedBooks;
-
-    }
+//    public List<Book> search(Shop books, Book book){
+//        List<Book> searchedBooks = new ArrayList<>();
+//        for (int i = 0; i < books.size(); i++) {
+//            if (book.equals(books.getBook(i).getBookId())) {
+//                searchedBooks.add(books.getBook(i));
+//            }
+//        }
+//        return searchedBooks;
+//
+//    }
 
 }

@@ -3,11 +3,13 @@ package edu.epam.zavadskaya.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Shop implements BaseDao{
+public class Shop<T> implements IShop<T, Book> {
     private static final Shop INSTANCE = new Shop();
+
     private ArrayList<Book> books = new ArrayList<>();
 
-    private Shop(){ }
+    private Shop() {
+    }
 
     public Shop(ArrayList<Book> books) {
         this.books = books;
@@ -17,54 +19,35 @@ public class Shop implements BaseDao{
         return INSTANCE;
     }
 
-    public Book getBook(int index) {
-        return books.get(index);
+    public ArrayList<Book> getBooks() {
+        return books;
     }
 
+    @Override
     public void addBook(Book book) {
         books.add(book);
     }
 
-    public int size(){
-        return books.size();
-    }
-
-
     @Override
-    public List<Book> findAll() {
-        List<Book> books = new ArrayList<>();
-        return null;
-    }
-
-    @Override
-    public List<Book> findById(long id) {
-
-        return null;
-    }
-
-    @Override
-    public boolean delete(Book book) {
+    public void deleteBook(Book book) {
         books.remove(book);
-        return false;
     }
 
     @Override
-    public boolean delete(long id) {
+    public List<Book> search(T criterion, Shop shop) {
+        List<Book> searchedBooks = new ArrayList<>();
         for (int i = 0; i < books.size(); i++) {
-            if(books.get(i).getBookId() == id){
-                books.remove(books.get(i));
+            if(books.get(i).getCriterion(criterion) == criterion){
+                searchedBooks.add(books.get(i));
             }
+//            if (criterion.equals(books.get(i).getCriterion(criterion))) {
+//                searchedBooks.add(books.get(i));
+//            }
         }
-        return true;
-    }
-
-    @Override
-    public boolean create(Book book) {
-        return false;
-    }
-
-    @Override
-    public List<Book> update(Book book) {
-        return null;
+        System.out.println(searchedBooks);
+        return searchedBooks;
     }
 }
+
+
+
