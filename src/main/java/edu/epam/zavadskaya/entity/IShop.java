@@ -5,10 +5,14 @@ import java.util.List;
 public interface IShop<T, Book> {
     void addBook(Book book);
     void deleteBook(Book book);
+    //    найти книгу по заданному/ым критерию; (dao)
+    List<Book> search(T criterion, Shop shop);
+
+
+
+
 
 //    изменить книгу по заданным полям/полю; (dao)
-//    найти книгу по заданному/ым критерию; (dao)
-    List<Book> search(T criterion, Shop shop);
 //    отсортировать список книг по заданному/ым критерию.(service/find)
 
 

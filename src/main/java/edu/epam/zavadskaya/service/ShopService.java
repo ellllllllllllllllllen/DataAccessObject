@@ -9,8 +9,6 @@ import edu.epam.zavadskaya.util.Validator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.List;
-
 public class ShopService<T> {
     private static final Logger logger = LogManager.getLogger(ShopService.class);
 
@@ -28,7 +26,6 @@ public class ShopService<T> {
             logger.error("Error to add book - book is already exists.");
             throw new FailedToAddBookException("The book is already exists.");
         }
-
     }
 
     public void remove(Shop shop, Book book) throws FailedToRemoveBookException {
@@ -42,10 +39,9 @@ public class ShopService<T> {
     }
 
     public void search(T criterion, Shop shop) {
-        if(validator.isCorrectForSearch(criterion, book)){
-
+        if(validator.isCorrectForSearch(criterion, shop)){
+            //
         }
         shop.search(criterion, shop);
-
     }
 }

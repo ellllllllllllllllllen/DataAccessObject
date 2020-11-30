@@ -1,7 +1,6 @@
 package edu.epam.zavadskaya.entity;
 
 import java.math.BigDecimal;
-import java.util.Set;
 
 public class Book {
     private long bookId;

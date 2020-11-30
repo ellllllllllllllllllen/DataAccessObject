@@ -32,7 +32,7 @@ public class Main {
         Book book2 = new Book();
         book2.setBookId(123456);
         book2.setTitle("Fire");
-        Author author2 = new Author("Gans", "Andersen");
+        Author author2 = new Author("Mia", "Andersen");
         book2.setAuthor(author2);
         PublishingHouse publishingHouse2 = new PublishingHouse("Delibri", Country.UK);
         book2.setPublishingHouse(publishingHouse2);

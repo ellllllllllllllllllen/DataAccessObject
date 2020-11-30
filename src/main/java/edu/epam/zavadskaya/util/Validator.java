@@ -25,19 +25,18 @@ public class Validator<T> {
     }
     public boolean isCorrectForSearch(T criterion, Shop shop) {
         boolean result = false;
-        for (int i = 0; i < shop.getBooks().size(); i++) {
-            result = (criterion.equals(shop.getBooks(i).getBookId())
-                    || criterion.equals(shop.getBooks(i).getTitle())
-                    || criterion.equals(shop.getBooks(i).getAuthor().getName())
-                    || criterion.equals(shop.getBooks(i).getAuthor().getLastName())
-                    || criterion.equals(shop.getBooks(i).getPublishingHouse().getName())
-                    || criterion.equals(shop.getBooks(i).getPublishingHouse().getCountry())
-                    || criterion.equals(shop.getBooks(i).getYear() > 0)
-                    || criterion.equals(shop.getBooks(i).getYear() <= Calendar.getInstance().get(Calendar.YEAR))
-                    || shop.getBooks(i).getNumberOfPages() > 0
-                    || shop.getBooks(i).getPrice().signum() != -1);
-        }o
-        return
-
+//        for (int i = 0; i < shop.getBooks().size(); i++) {
+//            result = (criterion.equals(shop.getBooks(i).getBookId())
+//                    || criterion.equals(shop.getBooks(i).getTitle())
+//                    || criterion.equals(shop.getBooks(i).getAuthor().getName())
+//                    || criterion.equals(shop.getBooks(i).getAuthor().getLastName())
+//                    || criterion.equals(shop.getBooks(i).getPublishingHouse().getName())
+//                    || criterion.equals(shop.getBooks(i).getPublishingHouse().getCountry())
+//                    || criterion.equals(shop.getBooks(i).getYear() > 0)
+//                    || criterion.equals(shop.getBooks(i).getYear() <= Calendar.getInstance().get(Calendar.YEAR))
+//                    || shop.getBooks(i).getNumberOfPages() > 0
+//                    || shop.getBooks(i).getPrice().signum() != -1);
+//        }
+        return result;
     }
 }
