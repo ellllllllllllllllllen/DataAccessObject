@@ -27,10 +27,6 @@ public class Book {
 
     }
 
-    public <T> T getCriterion(T criterion){
-        return criterion;
-    }
-
     public long getBookId() {
         return bookId;
     }
