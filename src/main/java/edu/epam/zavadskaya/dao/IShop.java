@@ -13,8 +13,4 @@ public interface IShop {
     List<Book> findByTitle(List<Book> books);
     List<Book> findByYear(List<Book> books);
     List<Book> findAll(List<Book> books);
-
-
-
-
 }

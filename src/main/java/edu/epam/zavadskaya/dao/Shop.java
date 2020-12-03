@@ -18,10 +18,6 @@ public class Shop implements IShop {
     private Shop() {
     }
 
-    public Shop(ArrayList<Book> books) {
-        this.books = books;
-    }
-
     public ArrayList<Book> getBooks() {
         return books;
     }

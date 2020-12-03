@@ -1,0 +1,12 @@
+1 Ghost John Escott Longman UK 2008 210 35,99 SOFT
+2 Upstream Jenny Dooley Express USA 2009 150 16,00 SOFT
+3 Kursbuch Schmitz Helen Klett GERMANY 2007 170 15,80 SOFT
+4 Hauptkurs Balme Michaela Hueber GERMANY 2013 160 16,00 SOFT
+5 Poetical Meggie Sharles Wordsworth UK 2019 370 35,00 HARD
+6 Headway Soars John Oxford UK 2018 260 50,00 HARD
+7 Monstertrackers Virginia Evans Spark CANADA 23,70 HARD
+8 Fairyland Virginia Evans Spark CANADA 25,00 HARD
+9 Friends Simmons Naomi Express CHINA 26,80 SOFT
+10 Menschen Terry Pratchett Hueber GERMANY 14,50 SOFT
+11 Soul Gerngross Gunter Transworld NORWAY 60,00 HARD
+12 Bully Puchta Herbert Helbling UK 35,00 SOFT

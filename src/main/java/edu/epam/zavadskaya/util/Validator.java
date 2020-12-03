@@ -5,7 +5,7 @@ import edu.epam.zavadskaya.dao.Shop;
 
 import java.util.Calendar;
 
-public class Validator<T> {
+public class Validator {
 
     public boolean isExist(Book book){
         boolean isExists = true;
@@ -29,6 +29,4 @@ public class Validator<T> {
                 && book.getNumberOfPages() > 0
                 && book.getPrice().signum() != -1);
     }
-
-
 }

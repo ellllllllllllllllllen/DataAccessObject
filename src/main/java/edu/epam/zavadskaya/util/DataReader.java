@@ -1,31 +1,39 @@
 package edu.epam.zavadskaya.util;
 
-import edu.epam.zavadskaya.entity.Author;
-import edu.epam.zavadskaya.entity.Book;
-import edu.epam.zavadskaya.entity.PublishingHouse;
+import edu.epam.zavadskaya.entity.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class DataReader {
-    Book book = new Book();
-    Author author = new Author();
+    private static final Logger logger = LogManager.getLogger(DataReader.class);
 
-//    public List readFromFile(String path){
-//        List<Book> books = new ArrayList();
-//
-//        try(Scanner scanner = new Scanner(new File(path))){
-//            while (scanner.hasNext()){
-//                book.setBookId(Long.valueOf(scanner.next()));
-//                book.setTitle(scanner.next());
-//                book.setAuthor(author.setName(scanner.next()), author.setLastName(scanner.next()));
-//                book.setAuthor(author.setLastName(scanner.next()));
-//                book.setPublishingHouse(PublishingHouse);
-//
-//            }
-//        }
-//        return books;
-//    }
+    public List readFromFile(String path){
+        List<Book> books = new ArrayList();
+
+        try(Scanner scanner = new Scanner(new File(path))){
+            while (scanner.hasNext()){
+                Book book = new Book();
+                book.setBookId(Long.valueOf(scanner.next()));
+                book.setTitle(scanner.next());
+                book.setAuthor(new Author(scanner.next(), scanner.next()));
+                book.setPublishingHouse(new PublishingHouse(scanner.next(), Country.valueOf(scanner.next())));
+                book.setYear(scanner.nextInt());
+                book.setNumberOfPages(scanner.nextInt());
+                book.setPrice(BigDecimal.valueOf(scanner.nextDouble()));
+                book.setBindingtype(BindingType.valueOf(scanner.next()));
+
+                books.add(book);
+            }
+        } catch (FileNotFoundException e) {
+            logger.error(e.getMessage());
+        }
+        return books;
+    }
 }
