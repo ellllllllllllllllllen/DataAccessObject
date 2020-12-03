@@ -2,6 +2,9 @@ package edu.epam.zavadskaya.service;
 
 import edu.epam.zavadskaya.dao.Shop;
 import edu.epam.zavadskaya.entity.*;
+import edu.epam.zavadskaya.exception.FailedToAddBookException;
+import edu.epam.zavadskaya.exception.FailedToFindBookException;
+import edu.epam.zavadskaya.exception.FailedToRemoveBookException;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -12,15 +15,11 @@ import java.util.List;
 public class ShopServiceTest {
 
     List<Book> books = new ArrayList<>();
-    ShopService shopService;
-    Author author;
-    PublishingHouse publishingHouse;
-    BigDecimal price;
+    ShopService shopService = new ShopService();
 
     @BeforeMethod
-    public void create() {
+    public void testAddBooks() {
         books = Shop.getInstance().getBooks();
-        shopService = new ShopService();
 
         books.add(new Book(1, "We", new Author("Evgeniy", "Zamyatin"),
                 new PublishingHouse("Drofa", Country.RUSSIA), 1998, 254, new BigDecimal(15.60), BindingType.SOFT));
@@ -30,48 +29,65 @@ public class ShopServiceTest {
 
         books.add(new Book(3, "Walden & Civil Disobedience", new Author("Henry", "David"),
                 new PublishingHouse("Wordsworth", Country.FRANCE), 2016, 140, new BigDecimal(22.50), BindingType.HARD));
+    }
 
-        books.add(new Book(4, "Livre de l'eleve", new Author("Henry", "David"),
+    @Test
+    public void testAdd() throws FailedToAddBookException {
+        shopService.add(new Book(4, "Livre de l'eleve", new Author("Henry", "David"),
                 new PublishingHouse("Pearson Education", Country.FRANCE), 1999, 120, new BigDecimal(16.99), BindingType.SOFT));
-
-    }
-    @Test
-    public void testAdd() {
-
     }
 
     @Test
-    public void testRemove() {
+    public void testFailAdd() throws FailedToAddBookException {
+        shopService.add(new Book(1, "We", new Author("Evgeniy", "Zamyatin"),
+                new PublishingHouse("Drofa", Country.RUSSIA), 1998, 254, new BigDecimal(15.60), BindingType.SOFT));
     }
 
     @Test
-    public void testFindById() {
+    public void testRemove() throws FailedToRemoveBookException {
+        shopService.remove(new Book(4, "Livre de l'eleve", new Author("Henry", "David"),
+                new PublishingHouse("Pearson Education", Country.FRANCE), 1999, 120, new BigDecimal(16.99), BindingType.SOFT));
     }
 
     @Test
-    public void testFindByTitle() {
+    public void testFailRemove() throws FailedToRemoveBookException {
+        shopService.remove(new Book(5, "Level A", new Author("Puchta", "Herbert"),
+                new PublishingHouse("Pearson Education", Country.UK), 2016, 210, new BigDecimal(30.99), BindingType.SOFT));
     }
 
     @Test
-    public void testFindByYear() {
+    public void testFindById() throws FailedToFindBookException {
+        shopService.findById(1);
     }
 
     @Test
-    public void testFindAll() {
+    public void testFailFindById() throws FailedToFindBookException {
+        shopService.findById(6);
+    }
+
+    @Test
+    public void testFindByTitle() throws FailedToFindBookException {
+        shopService.findByTitle("Cutting Edge");
+    }
+
+    @Test
+    public void testFailFindByTitle() throws FailedToFindBookException {
+        shopService.findByTitle("Hello");
+    }
+
+    @Test
+    public void testFindByYear() throws FailedToFindBookException {
+        shopService.findByYear(2017);
+    }
+
+    @Test
+    public void testFailFindByYear() throws FailedToFindBookException {
+        shopService.findByYear(1000);
+    }
+
+    @Test
+    public void testFindAll() throws FailedToFindBookException {
+        shopService.findAll();
     }
 }
 
-    List<Car> cars;
-    CarDaoImpl carDao;
-
-    @BeforeMethod
-    public void create() {
-        cars = CarStorage.getInstance().getCars();
-        carDao = new CarDaoImpl();
-
-        cars.add(new Car(1, "R8", Brand.AUDI, 2018, Color.BLACK, new BigDecimal(30000), "1278-Th-4"));
-        cars.add(new Car(2, "K0", Brand.PORSCHE, 2008, Color.WHITE, new BigDecimal(43647), "5678-Hh-6"));
-        cars.add(new Car(3, "L2", Brand.BMW, 2012, Color.RED, new BigDecimal(645643), "1278-Ey-0"));
-        cars.add(new Car(4, "P4", Brand.CITROEN, 2004, Color.GREEN, new BigDecimal(3464), "5027-PL-7"));
-        cars.add(new Car(5, "Mr", Brand.MERCEDES, 2010, Color.BLUE, new BigDecimal(234523), "5600-Op-5"));
-    }
